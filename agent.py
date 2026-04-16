@@ -24,7 +24,8 @@ async def main():
     print(f"Successfully loaded {len(tools)} tools: {[t.name for t in tools]}")
 
     # Initialize LLM
-    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+    # llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
+    llm = ChatGoogleGenerativeAI(model="gemma-4-26b-a4b-it", temperature=0)
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", "You are the company's dedicated HR and IT assistant. Utilize tools effectively to solve problems for employees. If you encounter errors, honestly inform the user."),
@@ -65,4 +66,4 @@ if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        print("Session End.")
+        print("\nSession End.")
